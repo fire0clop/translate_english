@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Base Title
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'WordBase/css/style.css' %}">
+</head>
+<body>
+{% block body %}
+    Base Body
+    <a class="read_more" href="{% url 'list_base' %}">Link to list base</a>
+{% endblock %}
+</body>
+</html>

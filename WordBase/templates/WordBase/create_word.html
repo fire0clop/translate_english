@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Создание нового слова</title>
+    <link rel="stylesheet" href="{% static 'WordBase/css/create_word.css' %}">
+</head>
+<body>
+<form method="post" class="decor">
+    {% csrf_token %}
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3>Создать слово</h3>
+        <input type="text" name="word" placeholder="Введите слово на любом языке">
+
+        <button class="button" type="submit">
+                Создать
+            </button>
+        <a style="text-decoration: none; align-self: end; margin-top: 25px" href="{% url 'list_base' %}">← Вернуться к словарю</a>
+
+    </div>
+</form>
+</body>
+</html>

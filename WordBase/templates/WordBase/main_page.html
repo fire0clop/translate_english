@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Приложение для изучения языка</title>
+    <link rel="stylesheet" href="{% static 'WordBase/css/style.css' %}">
+
+</head>
+<body style="background-image: url('{% static 'WordBase/img/image_spain.jpg' %}'); background-repeat: no-repeat; background-size: cover">
+<!-- header inner -->
+<section class="main_section">
+
+    <div class="first_block">
+        <div style="text-align: start">
+            <p class="f_word">П Р О С Т О</p>
+            <h1 class="s_word">Повторять слова</h1>
+            <hr style="width: 50%; margin: 0px; border-color: #FF4F00">
+            <p class="t_word">С нами вы легко сможете учить новые слова</p>
+        </div>
+        <div style="text-align: end">
+            <a class="link-button" href="#">Сейчас не доступно</a>
+        </div>
+
+    </div>
+
+
+    <div class="second_block">
+        <div style="text-align: end;">
+            <p class="f_word" class="yellow">Б Ы С Т Р О</p>
+            <h1 class="s_word">Ваш словарь</h1>
+            <hr style="width: 50%; float: right; border-color: #FF4F00;">
+            <br>
+            <p class="t_word">Собирайте слова и учите их</p>
+        </div>
+        <div style="text-align: start">
+            <a class="link-button" href="{% url 'list_base' %}">Словарь</a>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>

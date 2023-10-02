@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Приложение для изучения языка</title>
+    <link rel="stylesheet" href="{% static 'WordBase/css/word_list.css' %}">
+
+</head>
+<body>
+<div style="display: flex">
+    {% if translate %}
+        <table class="table_price">
+            <caption>Ваш словарь</caption>
+            <tr>
+                <th>Испанское слово</th>
+                <th colspan="2">Перевод</th>
+            </tr>
+            {% for word in translate %}
+                <tr>
+                    <td>{{ word.russian_word }}</td>
+                    <td>{{ word.spanish_word }}</td>
+                    <td>
+                        <a href="{% url 'detail_word' pk=word.pk %}"><img style="width: 30px; height: 30px" src="{% static 'WordBase/img/correct.png' %}" alt="">
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h2>Ваш словарь пуст</h2>
+    {% endif %}
+    <div>
+        <div class="new_word_but">
+            <a style="text-decoration: none; color: black; font-weight: bold;" href="{% url 'create_base' %}">Создать
+                новое слово</a>
+        </div>
+        <div class="new_word_but">
+            <a style="text-decoration: none; color: black; font-weight: bold;" href="{% url 'main_page' %}">На главную
+                страницу</a>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

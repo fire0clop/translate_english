@@ -1,0 +1,16 @@
+{% extends 'WordBase/Base.html'%}
+{% block title %}
+    Details info
+{% endblock %}
+{% block body %}
+    Russian version: <strong>{{ translate.russian_word }}</strong>
+    <br>
+    <br>
+    Spain version: <strong>{{ translate.spanish_word }}</strong>
+    <br><br><br><br>
+    <a href="{% url 'list_base' %}">Back to list</a>
+    <br>
+    <a href="{% url 'delete_word' pk=translate.pk%}">Delete Word</a>
+    <br>
+    <a href="{% url 'update_word' pk=translate.pk%}">Update Word</a>
+{% endblock %}
