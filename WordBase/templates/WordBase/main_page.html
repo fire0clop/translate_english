@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Translate app</title>
+      <link rel="stylesheet" href="{% static 'WordBase/css/main_page.css' %}">
+       <link rel="stylesheet" href="{% static 'WordBase/css/bootstrap.min.css' %}">
+       <link rel="stylesheet" href="{% static 'WordBase/css/style.css' %}">
+
+   </head>
+   <body class="main-layout">
+      <header>
+         <!-- header inner -->
+         <div class="header">
+            <div class="white_bg">
+
+               <!-- end header inner -->
+               <!-- end header -->
+               <!-- banner -->
+               <section>
+                  <div id="banner1" class="carousel slide" data-ride="carousel">
+                     <ol class="carousel-indicators">
+                        <li data-target="#banner1" data-slide-to="0" class="active"></li>
+                     </ol>
+                           <div class="container-fluid">
+                              <div class="carousel-caption">
+                                 <div class="row">
+                                    <div class="col-md-12 col-lg-7">
+                                       <div class="text-bg">
+                                          <span>s 1 m p l e</span>
+                                          <h1>Learn Word</h1>
+                                          <p>Eazy way to learn new spanish word with us</p>
+                                          <a class="read_more" href="#">Not available now</a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                     </div>
+                  </div>
+               </section>
+            </div>
+         </div>
+      </header>
+      <!-- end banner -->
+      <!-- about section -->
+      <div>
+         <div class="container">
+            <div class="row d_flex">
+               <div class="col-md-12 col-lg-5">
+                  <div class="about_img">
+                     <figure><img src="images/about.png" alt="#"/></figure>
+                  </div>
+               </div>
+               <div class="col-md-12 col-lg-7">
+                  <div class="titlepage">
+                     <h2> <span class="yellow">F a s t</span><br>Base of word</h2>
+                     <p>Collect only useful word and group to practice</p>
+                     <a class="read_more" href="{% url 'main_base' %}">To base</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- about section -->
+
+      <!-- end footer -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <!-- sidebar -->
+      <script src="js/custom.js"></script>
+   </body>
+</html>

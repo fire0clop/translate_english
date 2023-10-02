@@ -1,0 +1,24 @@
+{% extends 'WordBase/Base.html' %}
+{% block title %}
+    Title list Base
+{% endblock %}
+{% block body %}
+    {% if translate %}
+        <h2>Available word</h2>
+        <table style = "border: 1px solid black">
+            <tr><th style = "border: 1px solid black">Russian word</th><th style = "border: 1px solid black">Spain word</th><th style = "border: 1px solid black">link to update</th></tr>
+            {% for word in translate %}
+                <tr><td style = "border: 1px solid black">{{ word.russian_word }}</td><td style = "border: 1px solid black">{{ word.spanish_word }}</td><td style = "border: 1px solid black"><a href="{% url 'detail_word' pk=word.pk%}">More Infm</a></td></tr>
+            <br>
+        {% endfor %}
+        </table>
+
+
+    {% else %}
+        <h2>dsnt found word</h2>
+    {% endif %}
+    <br>
+    <div>
+        <a href="{% url 'create_base' %}">Create word</a>
+    </div>
+{% endblock %}
