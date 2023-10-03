@@ -1,5 +1,5 @@
 # translate_spain
-This is my second python project.
+This is my second python project.Besides the project itself, my goal is also to train my skills in python programming using database and django, as well as skills in html, css, js.
 Goal of project:
 The goal of this project is to create a web application that will help me and other people to learn a language faster (at this stage of the project development the main language is Spanish). 
 
