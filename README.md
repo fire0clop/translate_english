@@ -13,6 +13,7 @@ I know that such applications on the Internet is an incredible number and perhap
 Therefore, I decided to make this application solely according to my views on the usability of such a program
 
 The main points I want to realize in this application are as follows:
+
 1)a person can type a word in Russian and the program will automatically link it to the Spanish translation and immediately add the word to the user's personal dictionary.
 
 2)Since foreign words can have several translations, i.e. one word in Russian can have a translation for several different words in Spanish, I will add the ability to edit or enter a word in Spanish yourself.
