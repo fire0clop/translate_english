@@ -14,9 +14,15 @@ Therefore, I decided to make this application solely according to my views on th
 
 The main points I want to realize in this application are as follows:
 1)a person can type a word in Russian and the program will automatically link it to the Spanish translation and immediately add the word to the user's personal dictionary.
+
 2)Since foreign words can have several translations, i.e. one word in Russian can have a translation for several different words in Spanish, I will add the ability to edit or enter a word in Spanish yourself.
+
 3)grouping of words as they are learned. each word has ranks, that is, for example, if a person has already learned a word, it is moved to the learned folder. This will help not to repeat repeatedly already learned words
+
 4)Repetition of words will be implemented on the system of errors, that is, if the translation of a word a person makes a mistake often, it is found more often so that a person has the opportunity to learn it better and vice versa if a person for 20 hits has never made a mistake, the word is found less often
+
 5)sets of words. Generate sets of words according to their belonging for example if a person wants to learn a set of fruits, he can add words from this set to his set in one click
+
 6)enhanced possibilities in repetition (listening and pronunciation)* the realization of this function is an addition to the 
+
 7)In the future, I would also like to add German for study
