@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'WordBase.apps.WordbaseConfig'
+    'WordBase.apps.WordbaseConfig',
+    'account.apps.AccountConfig'
 ]
 
 MIDDLEWARE = [

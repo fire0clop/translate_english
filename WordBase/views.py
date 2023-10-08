@@ -14,26 +14,31 @@ class ListBaseView(ListView):
     model = Translation
     context_object_name = 'translate'
 
+    def get_queryset(self):
+        # Фильтруем объекты Translation, чтобы отобразить только те, которые создал текущий пользователь
+        return Translation.objects.filter(user=self.request.user)
+
 def create_word(request):
     if request.method == 'POST':
-        word =request.POST.get('word')
+        word = request.POST.get('word')
         translator = Translator()
         lang = translator.detect(word)
-        print(lang.lang)
         if lang.lang == 'ru':
             translation = translator.translate(word, src='ru', dest='es')
             spanish_word = translation.text
-            translation = Translation(russian_word=word, spanish_word=spanish_word)
+            # Создаем объект Translation с передачей request
+            translation = Translation(russian_word=word, spanish_word=spanish_word, user=request.user)
             translation.save()
         else:
             translation = translator.translate(word, src='es', dest='ru')
             russian_word = translation.text
-            translation = Translation(spanish_word=word, russian_word=russian_word)
+            # Создаем объект Translation с передачей request
+            translation = Translation(spanish_word=word, russian_word=russian_word, user=request.user)
             translation.save()
         return redirect('list_base')
 
-
     return render(request, 'WordBase/create_word.html')
+
 class DetailBaseView(DetailView):
     template_name = 'WordBase/detail_word.html'
     model = Translation
