@@ -2,10 +2,12 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-
+class Statys(models.Model):
+    name = models.CharField(max_length=50)
 class Translation(models.Model):
     russian_word = models.CharField(_('Russian Word'), max_length=100)
     spanish_word = models.CharField(_('Spanish Word'), max_length=100)
+    statys = models.ForeignKey(Statys, default=1, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

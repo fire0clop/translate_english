@@ -8,41 +8,199 @@
 
 </head>
 <body>
-<div style="display: flex">
-    {% if translate %}
-        <table class="table_price">
-            <caption>Ваш словарь</caption>
-            <tr>
-                <th>Русское слово</th>
-                <th colspan="2">Перевод</th>
-            </tr>
-            {% for word in translate %}
+<div class="container">
+    <div style="display: flex">
+        {% if translate %}
+            <table class="table_price">
+                <caption>Ваш словарь</caption>
                 <tr>
-                    <td>{{ word.russian_word }}</td>
-                    <td>{{ word.spanish_word }}</td>
-                    <td>
-                        <a href="{% url 'detail_word' pk=word.pk %}"><img style="width: 30px; height: 30px" src="{% static 'WordBase/img/correct.png' %}" alt="">
-                        </a>
-                    </td>
+                    <th>Русское слово</th>
+                    <th colspan="2">Перевод</th>
                 </tr>
-            {% endfor %}
-        </table>
-    {% else %}
-        <h2>Ваш словарь пуст</h2>
-    {% endif %}
-    <div>
-        <div class="new_word_but">
-            <a style="text-decoration: none; color: black; font-weight: bold;" href="{% url 'create_base' %}">Создать
-                новое слово</a>
+                {% for word in translate %}
+
+                    {% if word.statys.id == 1 %}
+                        <tr style="background-color: rgba(0,0,255,0.2)">
+                            <td>{{ word.russian_word }}</td>
+                            <td>{{ word.spanish_word }}</td>
+                            <td><input type="checkbox" class="word-checkbox" data-id="{{ word.id }}"></td>
+                            <td>
+                                <a href="{% url 'detail_word' pk=word.pk %}">
+                                    <img style="width: 30px; height: 30px" src="{% static 'WordBase/img/correct.png' %}"
+                                         alt="">
+                                </a>
+                            </td>
+                        </tr>
+                    {% elif word.statys.id == 2 %}
+                        <tr style="background-color: rgba(0,128,0,0.2)">
+                            <td>{{ word.russian_word }}</td>
+                            <td>{{ word.spanish_word }}</td>
+                            <td><input type="checkbox" class="word-checkbox" data-id="{{ word.id }}"></td>
+                            <td>
+                                <a href="{% url 'detail_word' pk=word.pk %}">
+                                    <img style="width: 30px; height: 30px" src="{% static 'WordBase/img/correct.png' %}"
+                                         alt="">
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr style="background-color: rgba(128,128,128,0.2)">
+                            <td>{{ word.russian_word }}</td>
+                            <td>{{ word.spanish_word }}</td>
+                            <td><input type="checkbox" class="word-checkbox" data-id="{{ word.id }}"></td>
+                            <td>
+                                <a href="{% url 'detail_word' pk=word.pk %}">
+                                    <img style="width: 30px; height: 30px" src="{% static 'WordBase/img/correct.png' %}"
+                                         alt="">
+                                </a>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        {% else %}
+            <h2>Ваш словарь пуст</h2>
+        {% endif %}
+        <div>
+            <div class="new_word_but">
+                <a style="text-decoration: none; color: black; font-weight: bold;" href="{% url 'create_base' %}">Создать
+                    новое слово</a>
+            </div>
+            <div class="new_word_but">
+                <a style="text-decoration: none; color: black; font-weight: bold;" href="{% url 'main_page' %}">На
+                    главную
+                    страницу</a>
+            </div>
+            <button id="change-status-button" class="new_word_but_option" data-button-value="1">
+                <p>Изменить статус слов на новые</p>
+            </button>
+
+            <button id="add-to-trainer-button" class="new_word_but_option" data-button-value="2">
+                <p>Добавить выбранны слова в тренажер</p>
+            </button>
+
+            <button id="finish-learning-button" class="new_word_but_option" data-button-value="3">
+                <p>Закончить изучение выбранных слов</p>
+            </button>
+
+            <button id="delete-selected-words-button" class="new_word_but_option_delete">
+                <p>Полностью удалить выбранные слова</p>
+            </button>
+
         </div>
-        <div class="new_word_but">
-            <a style="text-decoration: none; color: black; font-weight: bold;" href="{% url 'main_page' %}">На главную
-                страницу</a>
-        </div>
+
+    </div>
+    <div id="confirmDeleteModal" class="modal">
+    <div class="modal-content">
+        <p>Вы уверены, что хотите удалить выбранные слова?</p>
+        <button id="confirmDeleteButton">Да</button>
+        <button id="cancelDeleteButton">Нет</button>
     </div>
 
 </div>
 
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".new_word_but_option");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            const buttonValue = this.getAttribute("data-button-value");
+            const selectedWordIds = [];
+
+            document.querySelectorAll(".word-checkbox:checked").forEach(checkbox => {
+                selectedWordIds.push(checkbox.getAttribute("data-id"));
+            });
+
+            // Получение CSRF-токена из куков
+            const csrftoken = getCookie('csrftoken');
+
+            // Отправка AJAX-запроса с CSRF-токеном
+            $.ajax({
+                url: "/base/change_status/",  // Замените на ваш URL
+                method: "POST",
+                headers: { "X-CSRFToken": csrftoken },  // Установка CSRF-токена
+                data: {
+                    selectedWordIds: selectedWordIds,
+                    buttonValue: buttonValue
+                },
+                success: function (data) {
+                    console.log(data);
+
+                    // Перезагрузка страницы
+                    location.reload();
+
+                    // Снятие выделений с чекбоксов
+                    $(".word-checkbox:checked").prop("checked", false);
+                }
+            });
+        });
+    });
+
+    // Функция для получения CSRF-токена из куков
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+});
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const deleteButton = document.getElementById("delete-selected-words-button");
+    const modal = document.getElementById("confirmDeleteModal");
+    const confirmButton = document.getElementById("confirmDeleteButton");
+    const cancelButton = document.getElementById("cancelDeleteButton");
+
+    // Функция для получения CSRF-токена из куков
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    deleteButton.addEventListener("click", function () {
+        modal.style.display = "block";
+    });
+
+    confirmButton.addEventListener("click", function () {
+        modal.style.display = "none";
+
+        // Здесь добавьте логику для сбора выбранных слов
+        const selectedWordIds = [];
+        document.querySelectorAll(".word-checkbox:checked").forEach(checkbox => {
+            selectedWordIds.push(checkbox.getAttribute("data-id"));
+        });
+
+        if (selectedWordIds.length > 0) {
+            // Отправка выбранных слов на удаление через AJAX
+            const csrftoken = getCookie('csrftoken');
+            $.ajax({
+                url: "/base/delete_word/",  // Замените на ваш URL для удаления слов
+                method: "POST",
+                headers: { "X-CSRFToken": csrftoken },
+                data: { selectedWordIds: selectedWordIds },
+                success: function (data) {
+                    // Здесь вы можете обработать ответ от сервера после удаления
+                    console.log(data);
+
+                    // После успешного удаления скройте модальное окно
+                    modal.style.display = "none";
+                    location.reload();
+                }
+            });
+        }
+    });
+
+    cancelButton.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+});
+
+</script>
 
 </body>
 </html>

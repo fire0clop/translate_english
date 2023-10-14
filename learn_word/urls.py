@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', WordBase.views.ViewForMain, name = 'main_page'),
     path('base/', include('WordBase.urls')),
-    path ('account/', include('account.urls')),
+    path('account/', include('account.urls')),
+    path('trainer/', include('Trainer.urls')),
 ]

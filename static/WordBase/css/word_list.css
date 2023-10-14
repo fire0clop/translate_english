@@ -41,3 +41,56 @@
   height: 20px;
   border-radius: 10px;
 }
+.new_word_but_option{
+  background: #F79361;
+  box-shadow: 2px 2px 0 0 #a22800;
+  max-width: 150px;
+  margin: 20px;
+  height: 48px;
+  padding: 2px;
+  border-radius: 10px;
+  text-align: center;
+}
+.new_word_but_option p {
+  font-size: 12px;
+  font-weight: bold;
+}
+.new_word_but_option_delete{
+  background: #F79361;
+  box-shadow: 2px 2px 0 0 #a22800;
+  max-width: 150px;
+  margin: 20px;
+  height: 48px;
+  padding: 2px;
+  border-radius: 10px;
+  text-align: center;
+}
+.new_word_but_option_delete p {
+  font-size: 12px;
+  font-weight: bold;
+}
+.container {
+    width: 80%;
+    margin: 0 auto; /* Горизонтальное выравнивание по центру */
+    transform: translateX(30%); /* Коррекция вертикального выравнивания */
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal button {
+    margin: 10px;
+}

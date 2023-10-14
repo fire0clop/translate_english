@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Выберете вариант тренировки</title>
+    <link rel="stylesheet" href="{% static 'Trainer/css/trainer_choise.css' %}">
+</head>
+<body>
+<header>
+
+</header>
+<div class="container">
+    <div class="main_section">
+        <div class="left_block">
+            <a href="#" class="left_top">
+                <p class="p_choises">Тренировка по карточкам</p>
+                <div class="img_train">
+                    <img src="{% static 'Trainer/img/cards.png' %}" alt="">
+                </div>
+
+            </a>
+            <a href="#" class="left_bottom">
+                <p class="p_choises">Перевод с испанского на русский</p>
+                <div class="img_train">
+                    <img src="{% static 'Trainer/img/russian.png' %}" alt="">
+                </div>
+
+            </a>
+
+        </div>
+        <div class="right_block">
+            <a href="#" class="right_top">
+                <p class="p_choises">Перевод с русского на испанский</p>
+                <div class="img_train">
+                    <img src="{% static 'Trainer/img/spain.png' %}" alt="">
+                </div>
+
+            </a>
+            <a href="#" class="right_bottom">
+                <p class="p_choises">Тренировка всеми вариантами</p>
+                <div class="img_train">
+                    <img src="{% static 'Trainer/img/trans.png' %}" alt="">
+                </div>
+
+            </a>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
