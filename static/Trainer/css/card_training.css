@@ -1,0 +1,40 @@
+.content_main {
+    background-color: #80808099;
+    width: 60%;
+    margin: auto;
+    margin-top: 10%;
+    height: 500px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.ask_word {
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+    width: 60%;
+    border-radius: 300px;
+    font-size: 20px;
+}
+
+.parent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 80%;
+    margin-top: 30px;
+}
+
+.block_correct {
+    flex: 0 0 calc(50% - 5px); /* 50% ширины родительского элемента с учетом 10px gap */
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+.block_wrong{
+    flex: 0 0 calc(50% - 5px); /* 50% ширины родительского элемента с учетом 10px gap */
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}

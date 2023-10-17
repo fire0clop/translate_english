@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'Trainer/css/card_training.css' %}">
+</head>
+<body>
+
+<div class="content_main">
+    <div class="ask_word">
+        {{ word.spanish_word }}
+    </div>
+    <div class="parent">
+        <button class="block_correct" data-word="{{ word.russian_word }}"
+                onclick="handleCorrectClick(this)">{{ word.russian_word }}</button>
+
+        {% for bad in bad_word %}
+            <button class="block_wrong" data-word="{{ word.russian_word }}"
+                    onclick="handleWrongClick(this)">{{ bad }}</button>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    let buttonsDisabled = false; // Флаг для блокировки кнопок
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function handleCorrectClick(button) {
+        if (buttonsDisabled) {
+            return;
+        }
+
+        buttonsDisabled = true; // Блокируем все кнопки
+
+        const word = button.getAttribute('data-word');
+        button.disabled = true;
+        button.style.backgroundColor = 'green';
+
+        setTimeout(function () {
+            // Отправляем POST-запрос через 3 секунды
+            const csrftoken = getCookie('csrftoken');
+            $.ajax({
+                type: 'POST',
+                url: '/trainer/new_correct/',
+                data: {word: word},
+                headers: {"X-CSRFToken": csrftoken},
+                success: function (data) {
+                    if (data.reload_page) {
+                        location.reload(); // Перезагрузка страницы
+                    } else {
+                        updateContentMain(data.updated_content);
+                    }
+                }
+            });
+
+            // Сброс кнопки
+            button.style.backgroundColor = '';
+            button.disabled = false;
+            buttonsDisabled = false;
+
+            // Блокируем все кнопки снова
+            const allButtons = document.querySelectorAll('.block_correct, .block_wrong');
+            allButtons.forEach(function (btn) {
+                btn.disabled = true;
+            });
+        }, 1000);
+    }
+
+    function handleWrongClick(button) {
+        if (buttonsDisabled) {
+            return;
+        }
+
+        buttonsDisabled = true; // Блокируем все кнопки
+
+        const word = button.getAttribute('data-word');
+        button.disabled = true;
+        button.style.backgroundColor = 'red';
+        document.querySelector('.block_correct').style.backgroundColor = 'green';
+
+        setTimeout(function () {
+            // Отправляем POST-запрос через 3 секунды
+            const csrftoken = getCookie('csrftoken');
+            $.ajax({
+                type: 'POST',
+                url: '/trainer/new_wrong/',
+                data: {word: word}, // Используем полученное значение
+                headers: {"X-CSRFToken": csrftoken},
+                success: function (data) {
+                    if (data.reload_page) {
+                        location.reload(); // Перезагрузка страницы
+                    } else {
+                        updateContentMain(data.updated_content);
+                    }
+                }
+            });
+
+            // Сброс кнопки
+            button.style.backgroundColor = '';
+            button.disabled = false;
+            buttonsDisabled = false;
+
+            // Блокируем все кнопки снова
+            const allButtons = document.querySelectorAll('.block_correct, .block_wrong');
+            allButtons.forEach(function (btn) {
+                btn.disabled = true;
+            });
+        }, 1000);
+    }
+
+    function updateContentMain(updatedContent) {
+        const contentMain = document.querySelector('.content_main');
+        contentMain.innerHTML = updatedContent;
+    }
+</script>
+
+
+<script>
+    // Функция для перемешивания дочерних элементов .parent
+    function shuffleElements(parent) {
+        const children = Array.from(parent.children);
+
+        for (let i = children.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [children[i], children[j]] = [children[j], children[i]];
+        }
+
+        children.forEach(child => {
+            parent.appendChild(child);
+        });
+    }
+
+    // Находим все элементы с классом "parent" и перемешиваем их
+    const parents = document.querySelectorAll(".parent");
+    parents.forEach(parent => {
+        shuffleElements(parent);
+    });
+</script>
+
+</body>
+</html>
