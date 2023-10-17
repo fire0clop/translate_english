@@ -7,13 +7,23 @@
     <link rel="stylesheet" href="{% static 'Trainer/css/trainer_choise.css' %}">
 </head>
 <body>
-<header>
-
+<header class="header_fix">
+    <div class="option_header">
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout-user' %}?next={{ request.path }}">
+                <img class="img_header" src="{% static 'WordBase/img/logout.png' %}">
+            </a>
+        {% else %}
+            <a href="{% url 'login-user' %}?next={{ request.path }}">
+                <img class="img_header" src="{% static 'WordBase/img/login.png' %}">
+            </a>
+        {% endif %}
+    </div>
 </header>
 <div class="container">
     <div class="main_section">
         <div class="left_block">
-            <a href="#" class="left_top">
+            <a href="{% url 'first_training' %}" class="left_top">
                 <p class="p_choises">Тренировка по карточкам</p>
                 <div class="img_train">
                     <img src="{% static 'Trainer/img/cards.png' %}" alt="">
@@ -47,6 +57,7 @@
 
         </div>
     </div>
+    <a href="{% url 'main_page' %}" class="glow-button">← Вернуться</a>
 </div>
 </body>
 </html>
