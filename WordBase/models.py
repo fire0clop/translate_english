@@ -6,7 +6,7 @@ class Statys(models.Model):
     name = models.CharField(max_length=50)
 class Translation(models.Model):
     russian_word = models.CharField(_('Russian Word'), max_length=100)
-    spanish_word = models.CharField(_('Spanish Word'), max_length=100)
+    english_word = models.CharField(_('English Word'), max_length=100)
     statys = models.ForeignKey(Statys, default=1, on_delete=models.CASCADE)
     progress = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

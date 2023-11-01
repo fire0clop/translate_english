@@ -1,84 +1,85 @@
-.table_price {
-  border-collapse: collapse;
-  border-left: 3px solid #F79361;
-  border-right: 3px solid #F79361;
-  border-bottom: 3px solid #F79361;
-  font-family: "Lucida Grande", sans-serif;
- }
-.table_price caption {
-  background: #F79361;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 2px  4px 0 rgba(0,0,0,.3);
-  color: white;
-  font-family: "Roboto Slab",serif;
-  font-style: normal;
-  font-size: 26px;
-  text-align: center;
-  margin: 0;
-}
-.table_price td, .table_price th {
-  padding: 10px;
-}
-.table_price th {
-  text-align: left;
-  font-size: 18px;
-}
-.table_price tr:nth-child(2n) {
-  background: #E5E5E5;
-}
-.table_price td:last-of-type {
-  text-align: center;
+@font-face {
+    font-family: 'agbalumo';
+    src: url("/static/WordBase/fonts/Agbalumo-Regular.ttf") format('truetype');
 }
 
-.new_word_but{
-  background: #F79361;
-  box-shadow: 2px 2px 0 0 #a22800;
-  max-width: 250px;
-  margin: 20px;
-  padding: 20px;
-  height: 20px;
-  border-radius: 10px;
+@font-face {
+    font-family: 'lobster';
+    src: url("/static/WordBase/fonts/Lobster-Regular.ttf") format('truetype');
 }
-.new_word_but_option{
-  background: #F79361;
-  box-shadow: 2px 2px 0 0 #a22800;
-  max-width: 150px;
-  margin: 20px;
-  height: 48px;
-  padding: 2px;
-  border-radius: 10px;
-  text-align: center;
+
+
+.new_word_but_option {
+    text-decoration: none;
+    display: inline-block;
+    width: 140px;
+    height: 45px;
+    border-radius: 45px;
+    margin: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
 }
-.new_word_but_option p {
-  font-size: 12px;
-  font-weight: bold;
+
+.new_word_but_option:hover {
+    background: #2EE59D;
+    box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+    color: white;
+    transform: translateY(-7px);
 }
-.new_word_but_option_delete{
-  background: #F79361;
-  box-shadow: 2px 2px 0 0 #a22800;
-  max-width: 150px;
-  margin: 20px;
-  height: 48px;
-  padding: 2px;
-  border-radius: 10px;
-  text-align: center;
+
+
+
+.new_word_but_option_delete {
+    text-decoration: none;
+    display: inline-block;
+    width: 140px;
+    height: 45px;
+    border-radius: 45px;
+    margin: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
 }
-.new_word_but_option_delete p {
-  font-size: 12px;
-  font-weight: bold;
+
+.new_word_but_option_delete:hover {
+    background: #2EE59D;
+    box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+    color: white;
+    transform: translateY(-7px);
 }
+
+
+
 .container {
-    width: 80%;
-    margin: 0 auto; /* Горизонтальное выравнивание по центру */
-    transform: translateX(30%); /* Коррекция вертикального выравнивания */
+    width: 100%;
+    margin-top: 5%;
 }
+
+.img_plus {
+    margin-left: 50%;
+
+}
+
 .modal {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 30%;
+    top: 40%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
     border: 1px solid #ccc;
@@ -93,4 +94,59 @@
 
 .modal button {
     margin: 10px;
+}
+
+.menu_card {
+    width: 12%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom-left-radius: 20px;
+    align-items: center;
+    flex-direction: column;
+    background: #d6eaf8;
+    padding: 5px;
+}
+
+.card_aria {
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card_list_word {
+    width: 17%;
+    border: 1px solid black;
+    margin: 10px;
+    min-height: 30%;
+    border-radius: 15px;
+    padding: 5px;
+
+}
+
+.text_en_card {
+    text-align: center;
+    margin-top: 15px;
+    font-family: agbalumo, lobster;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.word-checkbox {
+    margin-left: 90%;
+}
+
+.img_edit {
+    width: 30px;
+    height: 30px;
+    margin-left: 85%;
+}
+
+.link_return {
+    text-decoration: none;
+    font-family: agbalumo, lobster;
+    letter-spacing: 3px;
+    color: black;
 }

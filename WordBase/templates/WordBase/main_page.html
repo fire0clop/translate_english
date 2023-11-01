@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Приложение для изучения языка</title>
+    <title>App to learn English</title>
     <link rel="stylesheet" href="{% static 'WordBase/css/style.css' %}">
 
 </head>
@@ -28,39 +28,6 @@
 <div class="wrap">
     <button class="button">Start</button>
 </div>
-{#<section class="main_section">#}
-{##}
-{#    <div class="first_block">#}
-{#        <div style="text-align: start">#}
-{#            <p class="f_word">П Р О С Т О</p>#}
-{#            <h1 class="s_word">Повторять слова</h1>#}
-{#            <hr style="width: 50%; margin: 0px; border-color: #FF4F00">#}
-{#            <p class="t_word">С нами вы легко сможете учить новые слова</p>#}
-{#        </div>#}
-{#        <div style="text-align: end">#}
-{#            <a class="link-button" href="{% url 'trainer_choise' %}">Перейти к тренировке</a>#}
-{#        </div>#}
-{##}
-{#    </div>#}
-{##}
-{##}
-{#    <div class="second_block">#}
-{#        <div style="text-align: end;">#}
-{#            <p class="f_word" class="yellow">Б Ы С Т Р О</p>#}
-{#            <h1 class="s_word">Ваш словарь</h1>#}
-{#            <hr style="width: 50%; float: right; border-color: #FF4F00;">#}
-{#            <br>#}
-{#            <p class="t_word">Собирайте слова и учите их</p>#}
-{#        </div>#}
-{#        <div style="text-align: start">#}
-{#            {% if user.is_authenticated %}#}
-{#                <a class="link-button" href="{% url 'list_base' %}?next={{ request.path }}">Словарь</a>#}
-{#            {% else %}#}
-{#                <a class="link-button" href="{% url 'login-user' %}?next={{ request.path }}">Словарь</a>#}
-{#            {% endif %}#}
-{#        </div>#}
-{#    </div>#}
-{#</section>#}
 <div class="main_about">
     <p>Main App Functions</p>
 </div>
@@ -73,7 +40,7 @@
         <hr style="width: 70px">
         <div class="_48px-h-sep"></div>
         <div class="bottom-div">
-            <div class="regular-text _500">Easily add new Spanish-Russian words to your personal vocabulary. Store them
+            <div class="regular-text _500">Easily add new English-Russian words to your personal vocabulary. Store them
                 in one place for quick access, helping you expand your word bank.
             </div>
         </div>
@@ -101,7 +68,7 @@
         <hr style="width: 70px">
         <div class="_48px-h-sep"></div>
         <div class="bottom-div">
-            <div class="regular-text _500">Elevate your Spanish skills by creating custom tests and assignments based on
+            <div class="regular-text _500">Elevate your English skills by creating custom tests and assignments based on
                 your vocabulary. Assess your progress and track your achievements to help you reach your linguistic
                 goals.
             </div>
@@ -137,77 +104,5 @@
         </div>
     </div>
 </section>
-    <div class="confetti-land">
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-      </div>
-<script>var confettiPlayers = [];
-
-function makeItConfetti() {
-  var confetti = document.querySelectorAll('.confetti');
-
-  if (!confetti[0].animate) {
-    return false;
-  }
-
-  for (var i = 0, len = confetti.length; i < len; ++i) {
-    var candycorn = confetti[i];
-    candycorn.innerHTML = '<div class="rotate"><div class="askew"></div></div>';
-    var scale = Math.random() * .7 + .3;
-    var player = candycorn.animate([
-      { transform: `translate3d(${(i/len*100)}vw,-5vh,0) scale(${scale}) rotate(0turn)`, opacity: scale },
-      { transform: `translate3d(${(i/len*100 + 10)}vw,105vh,0) scale(${scale}) rotate(${ Math.random() > .5 ? '' : '-'}2turn)`, opacity: 0.5 }
-    ], {
-      duration: Math.random() * 3000 + 5000,
-      iterations: Infinity,
-      delay: -(Math.random() * 7000)
-    });
-
-    confettiPlayers.push(player);
-  }
-}
-
-makeItConfetti();
-onChange({currentTarget: {value: 'bookmarks'}})
-
-document.getElementById('type').addEventListener('change', onChange)
-
-function onChange(e) {
-  document.body.setAttribute('data-type', e.currentTarget.value);
-  confettiPlayers.forEach(player => player.playbackRate = e.currentTarget.value === 'bookmarks' ? 2 : 1);
-}</script>
 </body>
 </html>
