@@ -1,4 +1,4 @@
-# translate_spain
+# translate_english
 This is my second python project.Besides the project itself, my goal is also to train my skills in python programming using database and django, as well as skills in html, css, js. Goal of project: The goal of this project is to create a web application that will help me and other people to learn a language faster (at this stage of the project development the main language is english).
 
 History: For me, the biggest challenge in learning languages is vocabulary. And to store the studied words, to repeat and type them I need an application. Some words get lost if you use writing utensils, some are forgotten and in general such use is not as effective as an electronic dictionary with a personal set of words.
