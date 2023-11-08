@@ -112,7 +112,7 @@ section about
     display: flex;
     z-index: 2;
     margin: auto;
-    width: 60%;
+    width: 40%;
     margin-top: 5%;
 }
 
@@ -313,7 +313,7 @@ button::before {
     background: #FFF9F1;
     text-decoration: none;
     font-family: 'Marck Script', cursive;
-    font-size: 20px;
+    font-size: 19px;
     letter-spacing: 1px;
     border-width: 6px;
     border-style: double;
@@ -361,4 +361,30 @@ button::before {
     background: pink;
 }
 
+.first_block_main {
+    background-color: rgba(255, 255, 255, 0.13);
+    width: 20%;
+    margin: 30% auto 20%;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    padding: 10px;
+    text-shadow: 1px 1px 2px black;
+    border-bottom: 4px solid white;
+    border-top: 4px solid white;
+    border-radius: 5px;
 
+}
+
+.back_new_img {
+    background-image: url('/static/WordBase/img/background_p.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: -6.4%;
+    width: 100%;
+    position: absolute;
+    top: 110%;
+    left: 0px;
+    height: 120%;
+    z-index: -999;
+}

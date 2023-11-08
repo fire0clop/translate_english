@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>App to learn English</title>
     <link rel="stylesheet" href="{% static 'WordBase/css/style.css' %}">
+    <link rel="icon" href="{% static 'WordBase/img/logo.png' %}" type="image/x-icon">
+
 
 </head>
 
@@ -25,9 +27,13 @@
     </div>
 </header>
 <div class="background_image"></div>
-<div class="wrap">
-    <button class="button">Start</button>
+<div class="first_block_main">
+    <p>Welcome to the app named Paper!</p>
+    <p>Here you can learn English and boost your vocabulary!</p>
+
 </div>
+<div class="back_new_img"></div>
+
 <div class="main_about">
     <p>Main App Functions</p>
 </div>
@@ -40,7 +46,8 @@
         <hr style="width: 70px">
         <div class="_48px-h-sep"></div>
         <div class="bottom-div">
-            <div class="regular-text _500">Easily add new English-Russian words to your personal vocabulary. Store them
+            <div class="regular-text _500">Easily add new English-Russian words to your personal vocabulary. Store
+                them
                 in one place for quick access, helping you expand your word bank.
             </div>
         </div>
@@ -53,7 +60,8 @@
         <hr style="width: 70px">
         <div class="_48px-h-sep"></div>
         <div class="bottom-div">
-            <div class="regular-text _500">Prepare to master the Spanish language with interactive flashcards. Learn and
+            <div class="regular-text _500">Prepare to master the Spanish language with interactive flashcards. Learn
+                and
                 review selected words through engaging flashcards that make the learning process enjoyable and
                 effective.
             </div>
@@ -68,7 +76,8 @@
         <hr style="width: 70px">
         <div class="_48px-h-sep"></div>
         <div class="bottom-div">
-            <div class="regular-text _500">Elevate your English skills by creating custom tests and assignments based on
+            <div class="regular-text _500">Elevate your English skills by creating custom tests and assignments
+                based on
                 your vocabulary. Assess your progress and track your achievements to help you reach your linguistic
                 goals.
             </div>
@@ -84,7 +93,7 @@
         <div class="color_box">
             <p class="name_box">VOCABULARY NOTEBOOK</p>
             {% if user.is_authenticated %}
-            	<a href="{% url 'list_base' %}?next={{ request.path }}" class="border-btn color-two">To word</a>
+                <a href="{% url 'list_base' %}?next={{ request.path }}" class="border-btn color-two">To word</a>
             {% else %}
                 <a href="{% url 'login-user' %}?next={{ request.path }}" class="border-btn color-two">To word</a>
             {% endif %}
@@ -96,13 +105,16 @@
         <div class="color_box">
             <p class="name_box">FLASHCARD PRACTICE</p>
             {% if user.is_authenticated %}
-            	<a href="{% url 'trainer_choise' %}?next={{ request.path }}" class="border-btn color-two">To training</a>
+                <a href="{% url 'trainer_choise' %}?next={{ request.path }}" class="border-btn color-two">To
+                    training</a>
             {% else %}
-                <a href="{% url 'login-user' %}?next={{ request.path }}" class="border-btn color-two">To training</a>
+                <a href="{% url 'login-user' %}?next={{ request.path }}" class="border-btn color-two">To
+                    training</a>
             {% endif %}
 
         </div>
     </div>
 </section>
+
 </body>
 </html>
