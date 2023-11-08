@@ -1,6 +1,5 @@
-# translate_spain
-This is my second python project.Besides the project itself, my goal is also to train my skills in python programming using database and django, as well as skills in html, css, js. Goal of project: The goal of this project is to create a web application that will help me and other people to learn a language faster (at this stage of the project development the main language is Spanish).Link for test: http://translate0spain.pythonanywhere.com/
-
+# translate_english
+This is my second python project.Besides the project itself, my goal is also to train my skills in python programming using database and django, as well as skills in html, css, js. Goal of project: The goal of this project is to create a web application that will help me and other people to learn a language faster (at this stage of the project development the main language is english).
 
 History: For me, the biggest challenge in learning languages is vocabulary. And to store the studied words, to repeat and type them I need an application. Some words get lost if you use writing utensils, some are forgotten and in general such use is not as effective as an electronic dictionary with a personal set of words.
 
@@ -8,9 +7,9 @@ Differences from other applications: I know that such applications on the Intern
 
 The main points I want to realize in this application are as follows:
 
-1)a person can type a word in Russian and the program will automatically link it to the Spanish translation and immediately add the word to the user's personal dictionary.
+1)a person can type a word in Russian and the program will automatically link it to the English translation and immediately add the word to the user's personal dictionary.
 
-2)Since foreign words can have several translations, i.e. one word in Russian can have a translation for several different words in Spanish, I will add the ability to edit or enter a word in Spanish yourself.
+2)Since foreign words can have several translations, i.e. one word in Russian can have a translation for several different words in English, I will add the ability to edit or enter a word in English yourself.
 
 3)grouping of words as they are learned. each word has ranks, that is, for example, if a person has already learned a word, it is moved to the learned folder. This will help not to repeat repeatedly already learned words
 
