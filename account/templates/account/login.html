@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 
@@ -9,29 +8,25 @@
     <link rel="stylesheet" href="{% static 'account/css/login_user.css' %}">
 </head>
 <body>
-<div class="wrapper">
-    <div class="title">
-        Форма входа
-    </div>
-<form method="post">
-    {% csrf_token %}
-    <div class="field">
-        <input type="text" id="id_username" name="username" required value="+7">
-        <label>Введите номер телефона</label>
-    </div>
-    <div class="field">
-        <input type="password" id="id_password" name="password" required>
-        <label>Пароль</label>
-    </div>
-    <div class="field">
-        <input type="submit" value="Вход">
-    </div>
-    <div class="signup-link">
-        Нет аккаунта?
-        <br>
-        <a href="{% url 'create-user' %}">Зарегистрируйтесь здесь</a>
-    </div>
-</form>
+
+<div class="container">
+    <section id="content">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Login Form</h1>
+            <div>
+                <input type="text" id="id_username" name="username" required value="+7">
+            </div>
+            <div>
+                <input type="password" id="id_password" name="password" required>
+            </div>
+            <div>
+                <input type="submit" value="Log in"/>
+                <a href="{% url 'create-user' %}">Register</a>
+            </div>
+        </form>
+    </section>
 </div>
+
 </body>
 </html>
