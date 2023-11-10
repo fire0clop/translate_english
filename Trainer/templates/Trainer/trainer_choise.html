@@ -3,19 +3,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Выберете вариант тренировки</title>
+    <title>Choose method of training</title>
     <link rel="stylesheet" href="{% static 'Trainer/css/trainer_choise.css' %}">
 </head>
 <body>
 <header class="header_fix">
     <div class="option_header">
         {% if user.is_authenticated %}
-            <a href="{% url 'logout-user' %}?next={{ request.path }}">
-                <img class="img_header" src="{% static 'WordBase/img/logout.png' %}">
+            <a style="text-decoration: none" href="{% url 'logout-user' %}?next={{ request.path }}">
+                <p class="p_header">Log Out</p>
+                <hr>
             </a>
         {% else %}
-            <a href="{% url 'login-user' %}?next={{ request.path }}">
-                <img class="img_header" src="{% static 'WordBase/img/login.png' %}">
+            <a style="text-decoration: none" href="{% url 'login-user' %}?next={{ request.path }}">
+                <p class="p_header">Sign In</p>
+                <hr>
             </a>
         {% endif %}
     </div>
@@ -24,16 +26,15 @@
     <div class="main_section">
         <div class="left_block">
             <a href="{% url 'first_training' %}" class="left_top">
-                <p class="p_choises">Тренировка по карточкам</p>
-                <div class="img_train">
-                    <img src="{% static 'Trainer/img/cards.png' %}" alt="">
+                <div class="text_cards">
+                    <p class="p_choises">Training by flashcard</p>
                 </div>
+
 
             </a>
             <a href="#" class="left_bottom">
-                <p class="p_choises">Перевод с испанского на русский</p>
-                <div class="img_train">
-                    <img src="{% static 'Trainer/img/russian.png' %}" alt="">
+                <div class="text_cards">
+                    <p class="p_choises">Translate from English to Russian</p>
                 </div>
 
             </a>
@@ -41,23 +42,22 @@
         </div>
         <div class="right_block">
             <a href="#" class="right_top">
-                <p class="p_choises">Перевод с русского на испанский</p>
-                <div class="img_train">
-                    <img src="{% static 'Trainer/img/spain.png' %}" alt="">
+                <div class="text_cards">
+                    <p class="p_choises">Translate from Russian to English</p>
                 </div>
 
             </a>
             <a href="#" class="right_bottom">
-                <p class="p_choises">Тренировка всеми вариантами</p>
-                <div class="img_train">
-                    <img src="{% static 'Trainer/img/trans.png' %}" alt="">
+                <div class="text_cards">
+                    <p class="p_choises">Insert the missing word</p>
                 </div>
 
             </a>
 
         </div>
     </div>
-    <a href="{% url 'main_page' %}" class="glow-button">← Вернуться</a>
+    <a href="{% url 'main_page' %}" class="glow-button"><p style="margin-top: 15px; text-align: center">← Return</p>
+    </a>
 </div>
 </body>
 </html>

@@ -36,7 +36,6 @@
 }
 
 
-
 .new_word_but_option_delete {
     text-decoration: none;
     display: inline-block;
@@ -62,7 +61,6 @@
     color: white;
     transform: translateY(-7px);
 }
-
 
 
 .container {
@@ -136,6 +134,8 @@
 
 .word-checkbox {
     margin-left: 90%;
+    height: 20px;
+    width: 20px;
 }
 
 .img_edit {

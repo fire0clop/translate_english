@@ -8,17 +8,17 @@
 
 .main_section {
     width: 60%;
-    height: 50%;
+    height: 75%;
     background-color: rgba(255, 255, 255, 0.52);
     border-radius: 20px;
     margin: auto;
     display: flex;
     padding: 10px;
-    box-shadow: 0 0 10px 0 #F137A6 inset, 0 0 10px 4px #F137A6;
+    box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.4)
 }
 
 .left_block {
-    height: 90%;
+    height: 95%;
     width: 50%;
     margin: auto;
     margin-right: 10px;
@@ -27,7 +27,7 @@
 }
 
 .right_block {
-    height: 90%;
+    height: 95%;
     width: 50%;
     margin: auto;
     display: flex;
@@ -35,89 +35,122 @@
 }
 
 .left_top {
-    height: 45%;
-    width: 100%;
-    background-color: #ff6f7c;
+    position: relative;
+    height: 47%;
+    width: 95%;
     border-radius: 20px;
     margin: auto;
     text-decoration: none;
+    background-image: url("/static/Trainer/img/fortr1.png");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
 }
 
-.left_bottom {
-    height: 45%;
+.text_cards {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    background-color: #fcc45f;
+    color: black;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #fef2d4;;
+    height: 75px;
+    font-size: 19px;
+    font-weight: 1000;
+    text-align: center;
+}
+
+
+.left_bottom {
+    position: relative;
+    height: 47%;
+    width: 95%;
     border-radius: 20px;
     margin: auto;
     text-decoration: none;
+    background-image: url("/static/Trainer/img/fortr2.png");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+}
+
+.left_bottom .text_cards {
+    background-color: rgb(207, 231, 255);
 }
 
 .right_top {
-    height: 45%;
-    width: 100%;
-    background-color: #84b7ff;
+    position: relative;
+    height: 47%;
+    width: 95%;
     border-radius: 20px;
     margin: auto;
     text-decoration: none;
+    background-image: url("/static/Trainer/img/fortr3.png");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+}
+
+.right_top .text_cards {
+    background-color: rgb(206, 252, 225);
 }
 
 .right_bottom {
-    height: 45%;
-    width: 100%;
-    background-color: #9bf1de;
+    position: relative;
+    height: 47%;
+    width: 95%;
     border-radius: 20px;
     margin: auto;
     text-decoration: none;
+    background-image: url("/static/Trainer/img/fortr4.png");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
 }
 
-.p_choises {
-    color: white;
-    font-family: Luminari, fantasy;
-    text-shadow: 2px 2px 2px black;
-    text-align: center;
-    font-size: 17px;
-    font-weight: revert;
-    background: #00000042;
-    padding: 20px;
-}
-
-.img_train {
-    margin: auto;
-    text-align: center;
+.right_bottom .text_cards {
+    background-color: rgb(246, 211, 255);
 }
 
 body {
-    background: #A4DADA;
+    background: #DCDDDF url(https://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
 }
 
 .glow-button {
     text-decoration: none;
     display: inline-block;
-    padding: 15px 30px;
-    margin: 2% 80%;
-    border-radius: 10px;
-    box-shadow: 0 0 40px 40px #F137A6 inset, 0 0 0 0 #F137A6;
+    width: 140px;
+    height: 45px;
+    border-radius: 45px;
+    margin: 40px 0px 40px 80%;
     font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: white;
-    transition: .15s ease-in-out;
-    width: 10%;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
 }
 
 .glow-button:hover {
-    box-shadow: 0 0 10px 0 #F137A6 inset, 0 0 10px 4px #F137A6;
-    color: #F137A6;
+    background: #2EE59D;
+    box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+    color: white;
+    transform: translateY(-7px);
 }
 
 .header_fix {
     height: 100px;
-    background-color: #FF6B6B;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    box-shadow: 5px 5px 20px #00ffff9e;
+    background-color: #00000091;
+    z-index: 99;
 }
 
 .option_header {
@@ -132,7 +165,7 @@ body {
 
 }
 
-.img_header {
-    width: 35px;
-    height: 35px;
+.p_header {
+    color: white;
+    text-shadow: 1px 1px 2px black;
 }
