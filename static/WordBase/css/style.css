@@ -275,16 +275,9 @@ button::before {
     background-color: white;
     width: 300px;
     margin: auto;
-    box-shadow: 2px 2px 4px black;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    position: absolute;
 
-}
-
-.right {
-    transform: translate(32px, 30px) rotate(10deg);
-}
-
-.left {
-    transform: translate(-32px, 30px) rotate(-10deg);
 }
 
 .color_box {
@@ -387,4 +380,13 @@ button::before {
     left: 0px;
     height: 120%;
     z-index: -999;
+}
+
+.footer {
+    margin-top: 10%;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
 }

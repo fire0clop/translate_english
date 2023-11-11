@@ -89,7 +89,17 @@
     <p>Language Learning</p>
 </div>
 <section class="cards">
-    <div class="white_box right">
+    <div style="position: absolute; left: 24%; z-index: -10; top: 183%; transform: translate(22px, 30px) rotate(-8deg);"
+         class="white_box right">
+        <div style="background-color: rgba(110,235,157,0.45)" class="color_box">
+        </div>
+    </div>
+    <div style="position: absolute; left: 25%; z-index: -9; top: 175%; transform: translate(32px, 30px) rotate(-4deg);"
+         class="white_box right">
+        <div style="background-color: rgba(255,246,127,0.6)" class="color_box">
+        </div>
+    </div>
+    <div style="left: 29%; top: 173.5%;" class="white_box right">
         <div class="color_box">
             <p class="name_box">VOCABULARY NOTEBOOK</p>
             {% if user.is_authenticated %}
@@ -101,7 +111,7 @@
 
         </div>
     </div>
-    <div class="white_box left">
+    <div style="right: 29%; top: 173.5%;" class="white_box left">
         <div class="color_box">
             <p class="name_box">FLASHCARD PRACTICE</p>
             {% if user.is_authenticated %}
@@ -114,7 +124,21 @@
 
         </div>
     </div>
-</section>
 
+    <div style="position: absolute; right: 27%; z-index: -9; top: 175%; transform: translate(22px, 30px) rotate(4deg);"
+         class="white_box right">
+        <div style="background-color: rgba(136,200,255,0.5)" class="color_box">
+        </div>
+    </div>
+    <div style="position: absolute; right: 26%; z-index: -90; top: 183%; transform: translate(22px, 30px) rotate(8deg); "
+         class="white_box right">
+        <div style="background-color: rgba(0,0,255,0.4)" class="color_box">
+        </div>
+    </div>
+
+</section>
+<div class="footer">
+
+</div>
 </body>
 </html>
