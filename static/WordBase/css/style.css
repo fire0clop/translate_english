@@ -378,7 +378,7 @@ button::before {
     position: absolute;
     top: 110%;
     left: 0px;
-    height: 120%;
+    height: 142%;
     z-index: -999;
 }
 

@@ -103,7 +103,7 @@
         <div class="color_box">
             <p class="name_box">VOCABULARY NOTEBOOK</p>
             {% if user.is_authenticated %}
-                <a href="{% url 'list_base' %}?next={{ request.path }}" class="border-btn color-two">To word</a>
+                <a href="{% url 'group_words' %}?next={{ request.path }}" class="border-btn color-two">To word</a>
             {% else %}
                 <a href="{% url 'login-user' %}?next={{ request.path }}" class="border-btn color-two">To word</a>
             {% endif %}

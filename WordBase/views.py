@@ -1,11 +1,11 @@
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, UpdateView
 from django.urls import reverse_lazy
 from .models import Translation, Statys
-from translate import Translator
 import g4f
+from googletrans import Translator
 
 
 def ViewForMain(request):
@@ -14,6 +14,24 @@ def ViewForMain(request):
 
 def mainbase(request):
     return render(request, template_name='WordBase/Base.html')
+
+
+def group_words(request):
+    # Считаем количество объектов модели со статусом 1
+    status_1 = Translation.objects.filter(statys__id=1).count()
+    # Считаем количество объектов модели со статусом 2
+    status_2 = Translation.objects.filter(statys__id=2).count()
+    # Считаем количество объектов модели со статусом 3
+    status_3 = Translation.objects.filter(statys__id=3).count()
+
+    # Добавляем это количество в контекст для передачи в шаблон
+    context = {
+        'status_1': status_1,
+        'status_2': status_2,
+        'status_3': status_3,
+    }
+
+    return render(request, 'WordBase/class_base.html', context)
 
 
 class ListBaseView(ListView):
@@ -41,45 +59,29 @@ def create_word(request):
             if cyrillic_count > latin_count:
                 return 'ru'  # Если кириллических символов больше, считаем текст на русском
             elif latin_count > cyrillic_count:
-                return 'en'  # Если латинских символов больше, считаем текст на испанском
+                return 'en'  # Если латинских символов больше, считаем текст на английском
             else:
                 return None  # Если одинако
 
         detected_language = detect_language_by_alphabet(word)
-
+        translator = Translator()
         # Если введенное написано слово на русском языке
         if detected_language == 'ru':
-            content = f"Переведи слово: '{word}' на английский язык. в ответе пришли только само одно слово! слово-перевод! и обязательно больше никаких слов и символов в ответе не пиши"
-            response = g4f.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": content}],
-                stream=True,
-            )
 
-            translate_word = ''
-            for message in response:
-                translate_word += message
-            print(translate_word)
+            # перевод с русского на английский
+            result = translator.translate(word, src='ru', dest='en')
+            english_word = result.text
 
             # Создаем объект Translation с передачей request
-            translation = Translation(russian_word=word, english_word=translate_word, user=request.user)
+            translation = Translation(russian_word=word, english_word=english_word, user=request.user)
             translation.save()
 
-        # В остальных случаях понимаем что слово введено на испанском языке
+        # В остальных случаях понимаем что слово введено на английском языке
         else:
-            content = f"Переведи слово: '{word}' на русский язык. в ответе пришли только само одно слово! слово-перевод! и обязательно больше никаких слов и символов в ответе не пиши"
-            response = g4f.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": content}],
-                stream=True,
-            )
-
-            translate_word = ''
-            for message in response:
-                translate_word += message
-            print(translate_word)
+            result = translator.translate(word, src='en', dest='ru')
+            russian_word = result.text
             # Создаем объект Translation с передачей request
-            translation = Translation(english_word=word, russian_word=translate_word, user=request.user)
+            translation = Translation(english_word=word, russian_word=russian_word, user=request.user)
             translation.save()
         return redirect('list_base')
 
@@ -93,7 +95,7 @@ class DetailBaseView(DetailView):
 
 
 class UpdateBaseView(UpdateView):
-    template_name = 'WordBase/create_word.html'
+    template_name = 'WordBase/edit_word.html'
     model = Translation
     fields = 'russian_word', 'english_word'
     success_url = reverse_lazy('list_base')

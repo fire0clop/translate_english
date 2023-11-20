@@ -3,25 +3,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Paper</title>
     <link rel="stylesheet" href="{% static 'Trainer/css/card_training.css' %}">
 </head>
 <body>
 
 <div class="content_main">
+    <hr style="margin: 5% 0px">
     <div class="ask_word">
-        {{ word.english_word }}
+        {% if elected_value == 'en' %}
+            {{ word.english_word }}
+        {% else %}
+            {{ word.russian_word }}
+        {% endif %}
+
+        <div class="progress-bar" id="progressBar">
+            <div class="progress" id="progress"></div>
+        </div>
     </div>
     <div class="parent">
-        <button class="block_correct" data-word="{{ word.russian_word }}"
-                onclick="handleCorrectClick(this)">{{ word.russian_word }}</button>
+        {% if elected_value == 'en' %}
+            <button class="block_correct" data-word="{{ word.russian_word }}"
+                    onclick="handleCorrectClick(this)">{{ word.russian_word }}</button>
 
-        {% for bad in bad_word %}
-            <button class="block_wrong" data-word="{{ word.russian_word }}"
-                    onclick="handleWrongClick(this)">{{ bad }}</button>
-        {% endfor %}
+            {% for bad in bad_word %}
+                <button class="block_wrong" data-word="{{ word.russian_word }}"
+                        onclick="handleWrongClick(this)">{{ bad }}</button>
+            {% endfor %}
+        {% else %}
+            <button class="block_correct" data-word="{{ word.russian_word }}"
+                    onclick="handleCorrectClick(this)">{{ word.english_word }}</button>
+
+            {% for bad in bad_word %}
+                <button class="block_wrong" data-word="{{ word.russian_word }}"
+                        onclick="handleWrongClick(this)">{{ bad }}</button>
+            {% endfor %}
+        {% endif %}
+
     </div>
 </div>
+<a href="{% url 'trainer_choise' %}" class="glow-button"><p style="margin-top: 15px; text-align: center">← Return</p>
+</a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
@@ -153,6 +175,21 @@
         shuffleElements(parent);
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const maxValue = 20;
+        const currentValue = {{ word.progress }};
 
+        // Вычисляем процент заполнения
+        const percentage = (currentValue / maxValue) * 100;
+
+        // Находим элементы полосы загрузки и присваиваем им ширину
+        const progressBar = document.getElementById('progressBar');
+        const progress = document.getElementById('progress');
+
+        progressBar.style.width = '40px';
+        progress.style.width = `${percentage}%`;
+    });
+</script>
 </body>
 </html>

@@ -8,82 +8,82 @@
 
 </head>
 <body>
-    <div class="card_aria">
-        <div style="width: 100%">
-            <a class="img_plus" href="{% url 'create_base' %}">
-                <img style="width: 70px; height: 70px;" src="{% static 'WordBase/img/plus.png' %}" alt="">
-            </a>
-        </div>
-        {% if translate %}
+<div class="card_aria">
+    <div style="width: 100%">
+        <a class="img_plus" href="{% url 'create_base' %}">
+            <img style="width: 70px; height: 70px;" src="{% static 'WordBase/img/plus.png' %}" alt="">
+        </a>
+    </div>
+    {% if translate %}
 
-            {% for word in translate %}
-                {% if word.statys.id == 1 %}
+        {% for word in translate %}
+            {% if word.statys.id == 1 %}
 
-                    <div class="card_list_word" style="background-color: rgba(0,0,255,0.35)">
-                        <input type="checkbox" class="word-checkbox" data-id="{{ word.id }}">
-                        <div class="text_en_card">{{ word.english_word }}</div>
-                        <hr>
-                        <div class="text_en_card">{{ word.russian_word }}</div>
-                        <div>
-                            <a href="{% url 'detail_word' pk=word.pk %}">
-                                <img class="img_edit" src="{% static 'WordBase/img/correct.png' %}">
-                            </a>
-                        </div>
+                <div class="card_list_word" style="background-color: rgba(0,0,255,0.35)">
+                    <input type="checkbox" class="word-checkbox" data-id="{{ word.id }}">
+                    <div class="text_en_card">{{ word.english_word }}</div>
+                    <hr>
+                    <div class="text_en_card">{{ word.russian_word }}</div>
+                    <div>i
+                        <a href="{% url 'update_word' pk=word.pk %}">
+                            <img class="img_edit" src="{% static 'WordBase/img/correct.png' %}">
+                        </a>
                     </div>
+                </div>
 
 
-                {% elif word.statys.id == 2 %}
-                    <div class="card_list_word" style="background-color: rgba(0,128,0,0.35)">
-                        <input type="checkbox" class="word-checkbox" data-id="{{ word.id }}">
-                        <div class="text_en_card">{{ word.english_word }}</div>
-                        <hr>
-                        <div class="text_en_card">{{ word.russian_word }}</div>
-                        <div>
-                            <a href="{% url 'detail_word' pk=word.pk %}">
-                                <img class="img_edit" src="{% static 'WordBase/img/correct.png' %}">
-                            </a>
-                        </div>
-                    </div>
-
-                {% elif word.statys.id == 3 %}
-                    <div class="card_list_word" style="background-color: rgba(128,128,128,0.35)">
+            {% elif word.statys.id == 2 %}
+                <div class="card_list_word" style="background-color: rgba(0,128,0,0.35)">
                     <input type="checkbox" class="word-checkbox" data-id="{{ word.id }}">
                     <div class="text_en_card">{{ word.english_word }}</div>
                     <hr>
                     <div class="text_en_card">{{ word.russian_word }}</div>
                     <div>
-                        <a href="{% url 'detail_word' pk=word.pk %}">
+                        <a href="{% url 'update_word' pk=word.pk %}">
                             <img class="img_edit" src="{% static 'WordBase/img/correct.png' %}">
                         </a>
                     </div>
+                </div>
 
-                {% endif %}
-            {% endfor %}
-        </div>
-        {% else %}
-            <h2>Your Dictionary</h2>
-        {% endif %}
-    </div>
-    <div class="menu_card">
-        <button id="add-to-trainer-button" class="new_word_but_option" data-button-value="2">
-            <p>Add to the workout</p>
-        </button>
-        <button id="finish-learning-button" class="new_word_but_option" data-button-value="3">
-            <p>Finish studying</p>
-        </button>
-        <button id="delete-selected-words-button" class="new_word_but_option_delete">
-            <p>Delete word</p>
-        </button>
-        <a class="link_return" href="{% url 'main_page' %}">←To main page</a>
-    </div>
+            {% elif word.statys.id == 3 %}
+                <div class="card_list_word" style="background-color: rgba(128,128,128,0.35)">
+                <input type="checkbox" class="word-checkbox" data-id="{{ word.id }}">
+                <div class="text_en_card">{{ word.english_word }}</div>
+                <hr>
+                <div class="text_en_card">{{ word.russian_word }}</div>
+                <div>
+                    <a href="{% url 'update_word' pk=word.pk %}">
+                        <img class="img_edit" src="{% static 'WordBase/img/correct.png' %}">
+                    </a>
+                </div>
 
-    <div id="confirmDeleteModal" class="modal">
-        <div class="modal-content">
-            <p>Are you sure that you want delete?</p>
-            <button id="confirmDeleteButton">Yes</button>
-            <button id="cancelDeleteButton">No</button>
-        </div>
+            {% endif %}
+        {% endfor %}
     </div>
+    {% else %}
+        <h2>Your Dictionary</h2>
+    {% endif %}
+</div>
+<div class="menu_card">
+    <button id="add-to-trainer-button" class="new_word_but_option" data-button-value="2">
+        <p>Add to the workout</p>
+    </button>
+    <button id="finish-learning-button" class="new_word_but_option" data-button-value="3">
+        <p>Finish studying</p>
+    </button>
+    <button id="delete-selected-words-button" class="new_word_but_option_delete">
+        <p>Delete word</p>
+    </button>
+    <a class="link_return" href="{% url 'main_page' %}">←To main page</a>
+</div>
+
+<div id="confirmDeleteModal" class="modal">
+    <div class="modal-content">
+        <p>Are you sure that you want delete?</p>
+        <button id="confirmDeleteButton">Yes</button>
+        <button id="cancelDeleteButton">No</button>
+    </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
