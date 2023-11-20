@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit your words</title>
+</head>
+<body>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ translation.english_word }}
+        {{ translation.russian_word }}
+    </form>
+
+</div>
+</body>
+</html>

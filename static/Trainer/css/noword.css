@@ -1,0 +1,53 @@
+body {
+    background: #5b5b5b url(https://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
+}
+
+.main_content {
+    width: 30%;
+    margin: auto;
+    margin-top: 10%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    height: 400px;
+}
+
+.top_text {
+    font-weight: bold;
+    font-size: 23px;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+}
+
+.main_text {
+    margin: auto;
+    font-size: 20px;
+
+}
+
+li {
+    margin-top: 10px;
+}
+
+.button {
+    margin: auto;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.button a {
+    width: 30%;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+    border: 2px solid rgba(0, 0, 0, 0.64);
+
+}

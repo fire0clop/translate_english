@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your groups</title>
+    <link rel="stylesheet" href="{% static 'WordBase/css/group_words.css' %}">
+</head>
+<body>
+<div class="top_fir">
+    <div class="top_fir_block">
+        <div style="margin: auto; text-align: center">
+            <p>
+                Effective Memorization
+            </p>
+            <img style="width: 30px; height: 30px" src="{% static 'WordBase/img/brain.png' %}" alt="">
+        </div>
+
+    </div>
+    <div class="top_fir_block">
+        <div style="margin: auto; text-align: center">
+            <p>
+                Personalized Approach
+            </p>
+            <img style="width: 30px; height: 30px" src="{% static 'WordBase/img/dictionary.png' %}" alt="">
+        </div>
+
+    </div>
+    <div class="top_fir_block">
+        <div style="margin: auto; text-align: center">
+            <p>
+                Mobility and Accessibility
+            </p>
+            <img style="width: 30px; height: 30px" src="{% static 'WordBase/img/mobil.png' %}" alt="">
+        </div>
+
+    </div>
+    <div class="top_fir_block">
+        <div style="margin: auto; text-align: center">
+            <p>
+                Motivation and Progress Tracking
+            </p>
+            <img style="width: 30px; height: 30px" src="{% static 'WordBase/img/progress.png' %}" alt="">
+        </div>
+
+    </div>
+
+</div>
+<div class="top_sec">
+    <div class="top_sec_left">
+        <p>
+            PAPER
+        </p>
+        <d>
+            lear word
+        </d>
+    </div>
+    <div class="top_sec_right">
+        <p>
+            GROUP OF WORDS
+        </p>
+        <d>
+            add new word and learn
+        </d>
+    </div>
+</div>
+<section class="main_sec">
+    <div class="left">
+        <br>
+        <br>
+        <br>
+        <p>
+            Add new words
+        </p>
+        <d>↓</d>
+        <p>
+            Choose the ones you want to learn
+        </p>
+        <d>↓</d>
+        <p>
+            Select a method and start memorizing
+        </p>
+        <d>↓</d>
+        <p>
+            Track your progress
+        </p>
+    </div>
+    <div class="right">
+        <div class="block_1">
+            <h4>New words</h4>
+            <p>In this block, you will find newly added words that you plan to learn. Add new terms or expressions here
+                to include them in your vocabulary</p>
+            <img src="{% static 'WordBase/img/training.png' %}" alt="">
+            <a class="link" href="#"><p>To words</p></a>
+        </div>
+        <div class="block_2">
+            <h4>Training Words</h4>
+            <p>Here are the words you've selected for active training. These words require your attention and repetition
+                to reinforce them in your memory</p>
+            <img src="{% static 'WordBase/img/training.png' %}" alt="">
+            <a class="link" href="#"><p>To words</p></a>
+        </div>
+        <div class="block_3">
+            <h4>Learned Words</h4>
+            <p>In this block, you'll find words that you have successfully learned. Congratulations! These words are now
+                considered mastered, and you can revisit them periodically to maintain your knowledge</p>
+            <img src="{% static 'WordBase/img/training.png' %}" alt="">
+            <a class="link" href="#"><p>To words</p></a>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

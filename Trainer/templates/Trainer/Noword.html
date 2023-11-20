@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Something wrong</title>
+    <link rel="stylesheet" href="{% static 'Trainer/css/noword.css' %}">
+</head>
+<body>
+<div class="main_content">
+    <p class="top_text">Your list of words for study is empty</p>
+    <hr>
+    <div class="main_text">
+        <p style="margin-bottom: 30px">If you want to learn new words, you need to:</p>
+        <li>Go to your dictionary</li>
+        <li>Select the words you want to learn and click the button 'ADD TO THE WORKOUT'</li>
+        <li>If you don't have any words in your dictionary, you can add them by clicking the plus sign</li>
+    </div>
+
+
+    <div class="button">
+        <a href="{% url 'list_base' %}">To dictionary</a>
+        <a href="{% url 'main_page' %}">To main page</a>
+    </div>
+
+</div>
+</body>
+</html>
