@@ -20,3 +20,7 @@ The main points I want to realize in this application are as follows:
 6)enhanced possibilities in repetition (listening and pronunciation)* the realization of this function is an addition to the
 
 7)In the future, I would also like to add German for study
+![part4](https://github.com/fire0clop/translate_english/assets/142446696/e82348b1-145d-4506-9f39-de74c65ce61b)
+![part3](https://github.com/fire0clop/translate_english/assets/142446696/87d2b49c-f7fc-4a73-bf1f-79031810a775)
+![part2](https://github.com/fire0clop/translate_english/assets/142446696/62329e2b-2dbc-4083-9a43-94c9af3e9f21)
+![part1](https://github.com/fire0clop/translate_english/assets/142446696/9b0c3908-9086-42c5-bc38-01727befb7e0)
